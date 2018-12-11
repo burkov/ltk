@@ -1,0 +1,6 @@
+[Unit]
+Description=Run full system upgrade
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/apt-upgrade-service
