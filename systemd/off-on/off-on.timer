@@ -2,8 +2,8 @@
 Description=Run service every night
 
 [Timer]
-OnCalendar=*-*-* 05:00
-RandomizedDelaySec=60m
+OnCalendar=*-*-* 03:10
+
 
 [Install]
 WantedBy=timers.target
