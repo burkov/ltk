@@ -3,5 +3,5 @@
 FILE="/sys/class/rtc/rtc0/wakealarm"
 
 echo 0 > "${FILE}"
-date '+%s' -d "+ $1 minutes" > "${FILE}"
+date '+%s' -d "+ 3 minutes" > "${FILE}"
 systemctl poweroff +1 # in 1 minute

@@ -3,4 +3,4 @@ Description=Set wakeup timer and poweroff
 
 [Service]
 Type=oneshot
-ExecStart=/usr/local/bin/off-on-service 3
+ExecStart=/usr/local/bin/off-on-service
