@@ -18,13 +18,13 @@ systemctl stop apt-daily.timer
 
 ################
 
-echo ":: Installing off-on service"
+#echo ":: Installing off-on service"
 
-cp systemd/off-on/off-on.service /etc/systemd/system
-cp systemd/off-on/off-on.timer   /etc/systemd/system
-cp systemd/off-on/off-on-service /usr/local/bin
+#cp systemd/off-on/off-on.service /etc/systemd/system
+#cp systemd/off-on/off-on.timer   /etc/systemd/system
+#cp systemd/off-on/off-on-service /usr/local/bin
 
-chmod +x /usr/local/bin/off-on-service
+#chmod +x /usr/local/bin/off-on-service
 
-systemctl enable off-on.timer
-systemctl start off-on.timer
+#systemctl enable off-on.timer
+#systemctl start off-on.timer
