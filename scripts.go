@@ -191,6 +191,8 @@ func listServiceStatus(serviceName string, isLegacy bool) {
 }
 
 func list() {
+	fmt.Printf("[%s] %s\n", aurora.Green("Syncing"), "git pull")
+	runCommand("git pull", true)
 	result, err := ioutil.ReadDir(serviceSourceDir)
 	if err != nil {
 		log.Panicf("Cant open dir %s", serviceSourceDir)
@@ -267,7 +269,8 @@ func getCommandNames() []string {
 
 func main() {
 	if len(os.Args) < 2 {
-		help()
+		list()
+		return
 	}
 	if f, found := commands[os.Args[1]]; found {
 		f()
