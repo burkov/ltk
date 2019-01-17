@@ -2,6 +2,8 @@
   <dictionary name="abu">
     <words>
       <w>filetype</w>
+      <w>keycode</w>
+      <w>systemctl</w>
       <w>systemd</w>
     </words>
   </dictionary>

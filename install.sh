@@ -11,10 +11,7 @@ chmod +x /usr/local/bin/apt-upgrade-service
 
 systemctl enable apt-upgrade.timer
 systemctl start apt-upgrade.timer
-systemctl disable apt-daily-upgrade.timer
-systemctl stop apt-daily-upgrade.timer
-systemctl disable apt-daily.timer
-systemctl stop apt-daily.timer
+
 
 ################
 

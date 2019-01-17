@@ -1,0 +1,6 @@
+[Unit]
+Description=
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/template-service
