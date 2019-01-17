@@ -1,0 +1,6 @@
+[Unit]
+Description=Just do a node reboot
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/reboot-service
