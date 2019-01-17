@@ -191,8 +191,10 @@ func listServiceStatus(serviceName string, isLegacy bool) {
 }
 
 func list() {
-	fmt.Printf("[%s] %s\n", aurora.Green("Syncing"), "git pull")
+	fmt.Printf("[%s] %s\n", aurora.Green(" Syncing"), "git pull")
 	runCommand("git pull", true)
+	fmt.Printf("[%s] %s\n", aurora.Green("Building"), "go build")
+	runCommand("go build", true)
 	result, err := ioutil.ReadDir(serviceSourceDir)
 	if err != nil {
 		log.Panicf("Cant open dir %s", serviceSourceDir)
