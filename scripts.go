@@ -4,6 +4,8 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"reflect"
+	"strings"
 )
 
 type FileType int
@@ -66,7 +68,7 @@ func (t FileType) copyPath(serviceName string) (from string, to string) {
 }
 
 func help() {
-	fmt.Println("Available commands: list, install, remove")
+	fmt.Printf("Available commands: { %s }\n", strings.Join(commandNames, " | "))
 	os.Exit(0)
 }
 
@@ -77,7 +79,8 @@ func secondArgOrPanic() string {
 	return os.Args[2]
 }
 
-func install(serviceName string) {
+func install() {
+	serviceName := secondArgOrPanic()
 	fmt.Println(Executable.copyPath(serviceName))
 	fmt.Println(Service.copyPath(serviceName))
 	fmt.Println(Timer.copyPath(serviceName))
@@ -87,25 +90,38 @@ func list() {
 
 }
 
-func remove(serviceName string) {
+func remove() {
 
 }
+
+func template() {
+
+}
+
+var commands = map[string]func(){
+	"list":     list,
+	"install":  install,
+	"remove":   remove,
+	"template": template,
+}
+var commandNames = getCommandNames()
+
+func getCommandNames() []string {
+	var result []string
+	for _, v := range reflect.ValueOf(commands).MapKeys() {
+		result = append(result, v.String())
+	}
+	return result
+}
+
 
 func main() {
 	if len(os.Args) < 2 {
 		help()
 	}
-	switch os.Args[1] {
-	case "list":
-		list()
-		break
-	case "install":
-		install(secondArgOrPanic())
-		break
-	case "remove":
-		remove(secondArgOrPanic())
-		break
-	default:
+	if f, found := commands[os.Args[1]]; found {
+		f()
+	} else {
 		help()
 	}
 }
