@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/scripts.iml" filepath="$PROJECT_DIR$/.idea/scripts.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.github.burkov.scripts.iml" filepath="$PROJECT_DIR$/.idea/modules/com.github.burkov.scripts.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.github.burkov.scripts.main.iml" filepath="$PROJECT_DIR$/.idea/modules/com.github.burkov.scripts.main.iml" />
     </modules>
   </component>
 </project>
