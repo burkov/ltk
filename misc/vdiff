@@ -1,0 +1,3 @@
+ffplay -f lavfi "movie=$1[org]; \
+                 movie=$2[enc]; \
+[org][enc]blend=all_mode=difference"

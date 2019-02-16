@@ -1,0 +1,3 @@
+#!/bin/bash
+
+rclone check -P --checksum --drive-skip-gdocs --fast-list --immutable ~/drived gdrive:
