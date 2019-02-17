@@ -1,0 +1,14 @@
+#!/bin/bash
+
+ORIGINAL="$1"
+ENCODED="$2"
+OUTPUT="$3"
+
+test -z "$ORIGINAL" && exit 1
+test -z "$ENCODED" && exit 1
+
+if [[ -z "$OUTPUT" ]]; then 
+    ffplay -f lavfi "movie=${ORIGINAL}[org]; movie=${ENCODED}[enc]; [org][enc]blend=all_mode=difference"
+else
+    ffmpeg -i "$ORIGINAL" -i "$ENCODED" -filter_complex "blend=all_mode=difference" -c:v libx264 -crf 18 -c:a copy "$OUTPUT"
+fi

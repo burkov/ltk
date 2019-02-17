@@ -1,0 +1,14 @@
+#!/bin/bash 
+
+INPUT=$1
+CRF=$2
+OUTPUT="${INPUT%.*}.hevc.crf$CRF.mp4"
+shift
+shift
+
+test -z "$INPUT" && exit 1
+test -z "$CRF" && exit 1
+
+echo "Converting $INPUT -> $OUTPUT"
+
+ffmpeg -i "$INPUT" -c:a copy -c:v hevc -crf "$CRF" -preset slow $@ "$OUTPUT"
